@@ -5,13 +5,13 @@ internal class Program
 {
     static void Main(string[] args)
     {
+        List<int> listNumbers = new List<int>();
+
         int[] firstArrayNumbers = { 1, 2, 1 };
         int[] secondArrayNumbers = { 3, 2 };
 
-        List<int> listNumbers = new List<int>();
-
-        SortOutNumbers(firstArrayNumbers, firstArrayNumbers.Length, listNumbers);
-        SortOutNumbers(secondArrayNumbers, secondArrayNumbers.Length, listNumbers);
+        AddUniqueNumbers(listNumbers, firstArrayNumbers);
+        AddUniqueNumbers(listNumbers, secondArrayNumbers);
 
         foreach (int number in listNumbers)
         {
@@ -19,8 +19,10 @@ internal class Program
         }
     }
 
-    static void SortOutNumbers(int[] arrayNumbers, int arrayLength, List<int> listNumbers)
+    static void AddUniqueNumbers(List<int> listNumbers, int[] arrayNumbers)
     {
+        int arrayLength = arrayNumbers.Length;
+
         for (int i = 0; i < arrayLength; i++)
         {
             if (listNumbers.Contains(arrayNumbers[i]) == false)
